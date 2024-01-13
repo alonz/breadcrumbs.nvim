@@ -39,7 +39,7 @@ M.get_filename = function()
   local f = require "breadcrumbs.utils"
 
   if not f.isempty(filename) then
-    local project_path = vim.fn.getcwd()
+    local project_path = vim.fn.getcwd():gsub(vim.fn.expand('~'), "~")
     local file_icon, hl_group
     local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
     if use_icons and devicons_ok then
